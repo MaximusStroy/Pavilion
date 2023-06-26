@@ -18,6 +18,7 @@ namespace Pavilion.Model
         public db_kingEntities()
             : base("name=db_kingEntities")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

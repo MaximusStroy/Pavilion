@@ -50,45 +50,54 @@
                         <StackPanel Orientation="Horizontal">
                             <StackPanel Orientation="Vertical" Width="200">
                                 <TextBox Margin="10" 
-                                     Text="{Binding ShopCenterUpdate.title, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                     Text="{Binding ShopCenterCreate.title, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                      materialDesign:HintAssist.Hint="Название"
                                      materialDesign:HintAssist.HelperText="Обязательно для заполнения"></TextBox>
                                 <TextBox Margin="10"
-                                     Text="{Binding ShopCenterUpdate.status_id, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                     Text="{Binding ShopCenterCreate.status_id, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                      materialDesign:HintAssist.Hint="Номер статуса"
                                      materialDesign:HintAssist.HelperText="Обязательно для заполнения"></TextBox>
                                 <TextBox Margin="10"
-                                     Text="{Binding ShopCenterUpdate.pavilions_count, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                     Text="{Binding ShopCenterCreate.pavilions_count, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                      materialDesign:HintAssist.Hint="Кол-во павильонов"></TextBox>
 
                                 <TextBox Margin="10"
-                                     Text="{Binding ShopCenterUpdate.address, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                     Text="{Binding ShopCenterCreate.address, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                      materialDesign:HintAssist.Hint="Адрес"
                                      materialDesign:HintAssist.HelperText="Обязательно для заполнения"></TextBox>
 
                             </StackPanel>
                             <StackPanel Orientation="Vertical" Width="200">
                                 <TextBox Margin="10"
-                                     Text="{Binding ShopCenterUpdate.value_added_factor, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                     Text="{Binding ShopCenterCreate.value_added_factor, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                      materialDesign:HintAssist.Hint="value_added_factor"
                                      materialDesign:HintAssist.HelperText="Обязательно для заполнения"></TextBox>
                                 <TextBox Margin="10"
-                                     Text="{Binding ShopCenterUpdate.floors_count, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                     Text="{Binding ShopCenterCreate.floors_count, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                      materialDesign:HintAssist.Hint="Кол-во этажей"
                                      materialDesign:HintAssist.HelperText="Обязательно для заполнения"></TextBox>
 
                                 <TextBox Margin="10"
-                                     Text="{Binding ShopCenterUpdate.cost, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                     Text="{Binding ShopCenterCreate.cost, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                      materialDesign:HintAssist.Hint="Цена"
                                      materialDesign:HintAssist.HelperText="Обязательно для заполнения"></TextBox>
 
                             </StackPanel>
                             <StackPanel Orientation="Vertical" Width="200">
-                                <TextBox Margin="10"
-                                     Text="{Binding ShopCenterUpdate.photo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                <TextBlock Margin="10"
+                                     Text="{Binding ShopCenterCreate.icon, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                      materialDesign:HintAssist.Hint="Фото"
-                                     materialDesign:HintAssist.HelperText="Обязательно для заполнения"></TextBox>
-                                
+                                     materialDesign:HintAssist.HelperText="Обязательно для заполнения"></TextBlock>
+                                <Button Margin="10"
+                                     Content="Выбрать фото"
+                                     materialDesign:HintAssist.Hint="Фото"
+                                     Command="{Binding PhotoCommandButton}"
+                                     materialDesign:HintAssist.HelperText="Обязательно для заполнения"></Button>
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Width="200">
+                                <Image Width="200" Height="250" Grid.Column="0" Grid.Row="5" Margin="5"
+                                       Source="{Binding PathToImage}">
+                                </Image>
                             </StackPanel>
 
                         </StackPanel>
@@ -96,19 +105,13 @@
                             <DockPanel Height="230">
 
                                 <Button DockPanel.Dock="Top"
-                                HorizontalAlignment="Right" 
-                                Margin="10 5 10 5"
-                                Content="Обновить заказ"
-                                    Command="{Binding UpdateOrderButtonCommand}"
-                                Width="200"></Button>
-                                <Button DockPanel.Dock="Bottom"
-                                        Background="Red"
-                                HorizontalAlignment="Right"
-                                    VerticalAlignment="Bottom"
-                                Margin="10 5 10 5"
-                                Content="Удалить заказ"
-                                    Command="{Binding DeleteOrderButtonCommand}"
-                                Width="200"></Button>
+                                    HorizontalAlignment="Right" 
+                                    Margin="10 5 10 5"
+                                    Content="Создать ТЦ"
+                                    Command="{Binding CreateShopCenterButtonCommand}"
+                                    Width="200">
+                                    
+                                </Button>
                             </DockPanel>
                         </StackPanel>
                     </Grid>
@@ -141,8 +144,8 @@
                             Text="{Binding Search, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></TextBox>
 
                     </StackPanel>
-                    <Button Margin="10 15 20 10" x:Name="btnTopMenuHide" Grid.Column="1" Click="btnTopMenuHide_Click" HorizontalAlignment="Right" Width="200" FontFamily="Segoe UI Symbol" Content="Создать заказ &#xE110;" Visibility="Hidden "/>
-                    <Button Margin="10 15 20 10" x:Name="btnTopMenuShow" Grid.Column="1" Click="btnTopMenuShow_Click" HorizontalAlignment="Right" Width="200" FontFamily="Segoe UI Symbol" Content="Создать заказ &#xE1FD;" >
+                    <Button Margin="10 15 20 10" x:Name="btnTopMenuHide" Grid.Column="1" Click="btnTopMenuHide_Click" HorizontalAlignment="Right" Width="200" FontFamily="Segoe UI Symbol" Content="Создать &#xE110;" Visibility="Hidden "/>
+                    <Button Margin="10 15 20 10" x:Name="btnTopMenuShow" Grid.Column="1" Click="btnTopMenuShow_Click" HorizontalAlignment="Right" Width="200" FontFamily="Segoe UI Symbol" Content="Создать &#xE1FD;" >
                     </Button>
                 </Grid>
             </StackPanel>
@@ -197,7 +200,7 @@
 
             <StackPanel HorizontalAlignment="Right" 
                         Name="pnlUpdateData"
-                        Visibility="{Binding IsVisibleUpdateOrder,  UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                        Visibility="{Binding IsVisibleShopCenterPanel,  UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                         Orientation="Vertical" 
                         VerticalAlignment="Top"
                         Width="{Binding ActualWidth,
@@ -255,19 +258,31 @@
                             <DockPanel Height="230">
 
                                 <Button DockPanel.Dock="Top"
-                                HorizontalAlignment="Right" 
-                                Margin="10 5 10 5"
-                                Content="Обновить заказ"
-                                    Command="{Binding UpdateOrderButtonCommand}"
-                                Width="200"></Button>
+                                    HorizontalAlignment="Right" 
+                                    Margin="10 5 10 5"
+                                    Content="Обновить ТЦ"
+                                    Command="{Binding UpdateShopCenterButtonCommand}"
+                                    Width="200">
+
+                                </Button>
+                                <Button DockPanel.Dock="Top"
+                                    HorizontalAlignment="Right" 
+                                    Margin="10 5 10 5"
+                                    Content="Перейти к павильонам"
+                                    Command="{Binding }"
+                                    Width="200">
+
+                                </Button>
                                 <Button DockPanel.Dock="Bottom"
                                         Background="Red"
-                                HorizontalAlignment="Right"
+                                    HorizontalAlignment="Right"
                                     VerticalAlignment="Bottom"
-                                Margin="10 5 10 5"
-                                Content="Удалить заказ"
-                                    Command="{Binding DeleteOrderButtonCommand}"
-                                Width="200"></Button>
+                                    Margin="10 5 10 5"
+                                    Content="Удалить ТЦ"
+                                    Command="{Binding DeleteShopCenterButtonCommand}"
+                                    Width="200">
+                                    
+                                </Button>
                             </DockPanel>
                         </StackPanel>
                     </Grid>
@@ -275,7 +290,7 @@
                 </Border>
                 <Button x:Name="BackListButton" 
                     Margin="20"
-                    Command="{Binding ViewListButtonCommand}"
+                    Command="{Binding BackToCollectionButtonCommand}"
                     Content="Показать весь список" >
 
                 </Button>

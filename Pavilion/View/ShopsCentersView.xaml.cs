@@ -28,7 +28,8 @@ namespace Pavilion.View
         public ShopsCenterViewModel viewModel;
         public ShopsCentersView()
         {
-            InitializeComponent(); pnlUpdateData.Visibility = Visibility.Collapsed;
+            InitializeComponent(); 
+            pnlUpdateData.Visibility = Visibility.Collapsed;
             viewModel = new ShopsCenterViewModel();
             DataContext = viewModel;
 
@@ -92,7 +93,7 @@ namespace Pavilion.View
         {
             var row = sender as DataGridRow;
             var obj = row.DataContext as shops_centers;
-            //viewModel.SelectOrderUpdate(obj);
+            viewModel.SelectOrderUpdate(obj);
             pnlUpdateData.Visibility = Visibility.Visible;
         }
     }

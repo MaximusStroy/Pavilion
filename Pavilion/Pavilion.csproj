@@ -107,6 +107,7 @@
       <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Components\Password\BindingProxy.cs" />
+    <Compile Include="Helper\ImgeConverter.cs" />
     <Compile Include="Model\CurrentUser.cs" />
     <Compile Include="Model\Repository\AuthRepository.cs" />
     <Compile Include="Model\Repository\BaseRepository.cs" />

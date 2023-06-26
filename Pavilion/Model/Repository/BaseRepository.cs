@@ -19,13 +19,11 @@ namespace Pavilion.Model.Repository
                     db.SaveChanges();
                     return model;
                 }
-
             }
             catch
             {
                 return null;
             }
-
         }
 
         public virtual IEnumerable<Entity> GetMany()
@@ -78,23 +76,5 @@ namespace Pavilion.Model.Repository
             }
         }
 
-        /*public virtual string Update(Entity model)
-        {
-            try
-            {
-                if (model == null) return null;
-                using (db_kingEntities db = new db_kingEntities())
-                {
-                    db.Set<Entity>().Update(model);
-                    db.SaveChanges();
-                    return null;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                return ex.Message;
-            }
-        }*/
     }
 }
